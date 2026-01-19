@@ -1,0 +1,9 @@
+---
+title: Home
+layout: layouts/base.njk
+---
+
+<h1 class="text-3xl font-bold mb-8">Latest Posts</h1>
+
+{% set posts = collections.posts | reverse %}
+{% include "components/post-list.njk" %}
