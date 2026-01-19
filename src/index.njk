@@ -3,7 +3,7 @@ title: Home
 layout: layouts/base.njk
 ---
 
-<h1 class="text-3xl font-bold mb-8">Latest Posts</h1>
+<h1 class="text-xl font-semibold tracking-tight mb-6" style="color: var(--color-text);">Posts</h1>
 
 {% set posts = collections.posts | reverse %}
 {% include "components/post-list.njk" %}

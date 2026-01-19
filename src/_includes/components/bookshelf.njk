@@ -1,29 +1,36 @@
-{# Interactive bookshelf component - customize as needed #}
+{# Interactive bookshelf component - minimal design #}
 <div class="bookshelf" id="bookshelf">
-  <div class="flex flex-wrap gap-4 justify-center">
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
     {% for book in books %}
-      <div class="book-item cursor-pointer transform transition-transform hover:scale-105 hover:-translate-y-2"
+      <div class="book-item cursor-pointer group"
            data-title="{{ book.title }}"
            data-author="{{ book.author }}"
            data-status="{{ book.status }}"
            data-notes="{{ book.notes }}">
-        <div class="w-24 h-36 bg-gradient-to-br from-blue-500 to-purple-600 rounded shadow-lg flex items-end p-2">
-          <span class="text-white text-xs font-medium leading-tight">{{ book.title }}</span>
+        <div class="aspect-[2/3] rounded-sm overflow-hidden transition-transform duration-200 group-hover:-translate-y-1" style="background: var(--color-bg-hover); border: 1px solid var(--color-border);">
+          {% if book.cover %}
+            <img src="{{ book.cover }}" alt="{{ book.title }}" class="w-full h-full object-cover">
+          {% else %}
+            <div class="w-full h-full flex items-end p-3">
+              <span class="text-[13px] font-medium leading-tight" style="color: var(--color-text);">{{ book.title }}</span>
+            </div>
+          {% endif %}
         </div>
-        <div class="mt-1 text-xs text-gray-600 dark:text-gray-400 text-center truncate w-24">
-          {{ book.author }}
+        <div class="mt-2">
+          <p class="text-[13px] font-medium truncate" style="color: var(--color-text);">{{ book.title }}</p>
+          <p class="text-[12px] truncate" style="color: var(--color-text-secondary);">{{ book.author }}</p>
         </div>
       </div>
     {% endfor %}
   </div>
   
-  {# Book detail modal #}
-  <div id="book-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md mx-4 shadow-xl">
-      <h3 id="modal-title" class="text-xl font-bold mb-2"></h3>
-      <p id="modal-author" class="text-gray-600 dark:text-gray-400 mb-4"></p>
-      <p id="modal-notes" class="text-sm"></p>
-      <button onclick="closeBookModal()" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+  {# Book detail modal - minimal style #}
+  <div id="book-modal" class="hidden fixed inset-0 flex items-center justify-center z-50" style="background: rgba(0,0,0,0.4); backdrop-filter: blur(4px);">
+    <div class="rounded-lg p-6 max-w-sm mx-4 shadow-xl" style="background: var(--color-bg); border: 1px solid var(--color-border);">
+      <h3 id="modal-title" class="text-[17px] font-semibold mb-1" style="color: var(--color-text);"></h3>
+      <p id="modal-author" class="text-[14px] mb-4" style="color: var(--color-text-secondary);"></p>
+      <p id="modal-notes" class="text-[14px] leading-relaxed" style="color: var(--color-text);"></p>
+      <button onclick="closeBookModal()" class="mt-5 text-[13px] font-medium px-3 py-1.5 rounded transition-colors" style="color: var(--color-text-secondary); background: var(--color-bg-hover);">
         Close
       </button>
     </div>

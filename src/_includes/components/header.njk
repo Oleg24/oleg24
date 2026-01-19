@@ -1,15 +1,33 @@
-<header class="border-b border-gray-200 dark:border-gray-700">
-  <nav class="max-w-3xl mx-auto px-4 py-4">
-    <div class="flex items-center justify-between">
-      <a href="/" class="text-xl font-bold hover:text-blue-600 dark:hover:text-blue-400">
-        {{ site.title }}
-      </a>
-      <ul class="flex gap-6 text-sm">
-        <li><a href="/" class="hover:text-blue-600 dark:hover:text-blue-400">Home</a></li>
-        <li><a href="/about/" class="hover:text-blue-600 dark:hover:text-blue-400">About</a></li>
-        <li><a href="/books/" class="hover:text-blue-600 dark:hover:text-blue-400">Books</a></li>
-        <li><a href="/tags/" class="hover:text-blue-600 dark:hover:text-blue-400">Tags</a></li>
-      </ul>
-    </div>
+<header style="border-bottom: 1px solid var(--color-border);">
+  <nav class="max-w-2xl mx-auto px-5">
+    <ul class="flex items-center gap-1 text-[14px] -mx-2">
+      <li>
+        <a href="/" class="inline-flex items-center px-3 py-3 rounded-md nav-link font-medium" style="color: var(--color-text);">
+          {{ site.title }}
+        </a>
+      </li>
+      <li class="ml-auto"></li>
+      <li>
+        <a href="/about/" class="inline-flex items-center px-3 py-3 rounded-md nav-link transition-colors" 
+           onmouseover="this.style.background='var(--color-bg-hover)'" 
+           onmouseout="this.style.background='transparent'">
+          About
+        </a>
+      </li>
+      <li>
+        <a href="/books/" class="inline-flex items-center px-3 py-3 rounded-md nav-link transition-colors"
+           onmouseover="this.style.background='var(--color-bg-hover)'" 
+           onmouseout="this.style.background='transparent'">
+          Books
+        </a>
+      </li>
+      <li>
+        <a href="/tags/" class="inline-flex items-center px-3 py-3 rounded-md nav-link transition-colors"
+           onmouseover="this.style.background='var(--color-bg-hover)'" 
+           onmouseout="this.style.background='transparent'">
+          Tags
+        </a>
+      </li>
+    </ul>
   </nav>
 </header>

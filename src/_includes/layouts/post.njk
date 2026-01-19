@@ -1,20 +1,20 @@
 ---
 layout: layouts/base.njk
 ---
-<article class="prose dark:prose-invert max-w-none">
-  <header class="mb-8">
-    <h1 class="text-3xl font-bold mb-2">{{ title }}</h1>
-    <div class="text-gray-600 dark:text-gray-400 text-sm">
+<article class="prose max-w-none">
+  <header class="mb-10">
+    <p class="text-[13px] mb-2" style="color: var(--color-text-secondary);">
       <time datetime="{{ date | dateIso }}">{{ date | dateReadable }}</time>
       {% if tags %}
-        <span class="mx-2">•</span>
         {% for tag in tags %}
           {% if tag != "posts" %}
-            <a href="/tags/{{ tag | slugify }}/" class="text-blue-600 dark:text-blue-400 hover:underline">#{{ tag }}</a>
+            <span class="mx-1">·</span>
+            <a href="/tags/{{ tag | slugify }}/" class="hover:underline" style="color: var(--color-text-secondary);">{{ tag }}</a>
           {% endif %}
         {% endfor %}
       {% endif %}
-    </div>
+    </p>
+    <h1 class="text-2xl font-semibold tracking-tight m-0" style="color: var(--color-text);">{{ title }}</h1>
   </header>
   
   {{ content | safe }}

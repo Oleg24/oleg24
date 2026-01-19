@@ -1,17 +1,14 @@
 {# Post listing component #}
-<ul class="space-y-6">
+<ul class="space-y-1">
   {% for post in posts %}
-    <li class="border-b border-gray-200 dark:border-gray-700 pb-6 last:border-0">
-      <a href="{{ post.url }}" class="block group">
-        <h2 class="text-xl font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 mb-1">
-          {{ post.data.title }}
-        </h2>
-        <time datetime="{{ post.date | dateIso }}" class="text-sm text-gray-600 dark:text-gray-400">
+    <li>
+      <a href="{{ post.url }}" class="group flex items-baseline gap-4 py-2 -mx-2 px-2 rounded-md transition-colors duration-150" style="background: transparent;" onmouseover="this.style.background='var(--color-bg-hover)'" onmouseout="this.style.background='transparent'">
+        <time datetime="{{ post.date | dateIso }}" class="text-[13px] shrink-0 tabular-nums" style="color: var(--color-text-secondary);">
           {{ post.date | dateReadable }}
         </time>
-        {% if post.data.description %}
-          <p class="mt-2 text-gray-600 dark:text-gray-400">{{ post.data.description }}</p>
-        {% endif %}
+        <span class="text-[15px]" style="color: var(--color-text);">
+          {{ post.data.title }}
+        </span>
       </a>
     </li>
   {% endfor %}
